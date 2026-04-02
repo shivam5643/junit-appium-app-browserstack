@@ -34,6 +34,8 @@ public class BrowserStackJUnitTest {
         options.setCapability("appium:app", "bs://sample.app");
         options.setCapability("appium:deviceName", "Samsung Galaxy S22 Ultra");
         options.setCapability("appium:platformVersion", "12.0");
+        options.setCapability("appium:autoGrantPermissions", true);
+        options.setCapability("appium:noReset", true);
 
         driver = new AndroidDriver(new URL(String.format("https://%s:%s@hub.browserstack.com/wd/hub", userName , accessKey)), options);
     }
