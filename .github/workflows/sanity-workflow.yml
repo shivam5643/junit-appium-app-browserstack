@@ -4,6 +4,7 @@
 name: Java SDK Test workflow for Maven on workflow_dispatch
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       commit_sha:
