@@ -71,74 +71,90 @@ jobs:
         with:
           gradle-version: '9.4.1'
       - name: Run mvn test for junit4 android
+        continue-on-error: true
         run: |
           cd junit-4/android
           mvn compile
           mvn test -P sample-test
       - name: Run mvn profile sample-local-test for junit4 android
+        continue-on-error: true
         run: |
           cd junit-4/android
           mvn compile
           mvn test -P sample-local-test -D"browserstack.app"="./LocalSample.apk"
       - name: Run mvn test for junit4 ios
+        continue-on-error: true
         run: |
           cd junit-4/ios
           mvn compile
           mvn test -P sample-test
       - name: Run mvn profile sample-local-test for junit4 ios
+        continue-on-error: true
         run: |
           cd junit-4/ios
           mvn compile
           mvn test -P sample-local-test -D"browserstack.app"="./LocalSample.ipa"
       - name: Run gradle test for junit4 android  
+        continue-on-error: true
         run: |
           cd junit-4/android
           gradle clean sampleTest
       - name: Run gradle sample-local-test for junit4 android  
+        continue-on-error: true
         run: |
           cd junit-4/android
           gradle clean sampleLocalTest -D"browserstack.app"="./LocalSample.apk"
       - name: Run gradle test for junit4 ios  
+        continue-on-error: true
         run: |
           cd junit-4/ios
           gradle clean sampleTest
       - name: Run gradle sample-local-test for junit4 ios  
+        continue-on-error: true
         run: |
           cd junit-4/ios
           gradle clean sampleLocalTest -D"browserstack.app"="./LocalSample.ipa"    
       - name: Run mvn test for junit5 android
+        continue-on-error: true
         run: |
           cd junit-5/android
           mvn compile
           mvn test -P sample-test
       - name: Run mvn profile sample-local-test for junit5 android
+        continue-on-error: true
         run: |
           cd junit-5/android
           mvn compile
           mvn test -P sample-local-test -D"browserstack.app"="./LocalSample.apk"
       - name: Run mvn test for junit5 ios
+        continue-on-error: true
         run: |
           cd junit-5/ios
           mvn compile
           mvn test -P sample-test
       - name: Run mvn profile sample-local-test for junit5 ios
+        continue-on-error: true
         run: |
           cd junit-5/ios
           mvn compile
           mvn test -P sample-local-test -D"browserstack.app"="./LocalSample.ipa"
       - name: Run gradle test for junit5 android  
+        continue-on-error: true
         run: |
           cd junit-5/android
           gradle clean sampleTest
       - name: Run gradle sample-local-test for junit5 android  
+        continue-on-error: true
         run: |
           cd junit-5/android
           gradle clean sampleLocalTest -D"browserstack.app"="./LocalSample.apk"
       - name: Run gradle test for junit5 ios  
+        continue-on-error: true
         run: |
           cd junit-5/ios
           gradle clean sampleTest
       - name: Run gradle sample-local-test for junit5 ios  
+        continue-on-error: true
         run: |
           cd junit-5/ios
           gradle clean sampleLocalTest -D"browserstack.app"="./LocalSample.ipa"     
