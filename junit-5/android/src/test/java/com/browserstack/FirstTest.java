@@ -17,11 +17,11 @@ public class FirstTest extends BrowserStackJUnitTest{
   @Test
   void test() throws IOException, InterruptedException {
 
-    WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement searchElement = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Search Wikipedia")));
     searchElement.click();
 
-    WebElement insertTextElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement insertTextElement = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")));
     insertTextElement.sendKeys("BrowserStack");
 

@@ -23,7 +23,7 @@ public class LocalTest extends BrowserStackJUnitTest {
 
   @Test
   public void test() throws Exception {
-    WebElement testButton = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement testButton = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("TestBrowserStackLocal")));
     testButton.click();
 
@@ -35,7 +35,7 @@ public class LocalTest extends BrowserStackJUnitTest {
         return result != null && result.length() > 0;
       }
     });
-    WebElement resultElement = (WebElement) driver.findElement(AppiumBy.accessibilityId("ResultBrowserStackLocal"));
+    WebElement resultElement = driver.findElement(AppiumBy.accessibilityId("ResultBrowserStackLocal"));
 
     String resultString = resultElement.getText().toLowerCase();
     System.out.println(resultString);

@@ -16,16 +16,16 @@ public class FirstTest extends BrowserStackJUnitTest {
 
   @Test
   public void test() throws Exception {
-    WebElement textButton = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement textButton = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Button")));
     textButton.click();
-    WebElement textInput = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement textInput = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Input")));
     textInput.sendKeys("hello@browserstack.com" + "\n");
 
     Thread.sleep(5000);
 
-    WebElement textOutput = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement textOutput = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.accessibilityId("Text Output")));
 
     assertEquals(textOutput.getText(),"hello@browserstack.com");

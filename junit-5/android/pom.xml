@@ -37,12 +37,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.4.0</version>
+            <version>4.6.0</version>
         </dependency>
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>8.1.1</version>
+            <version>8.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
@@ -136,6 +136,9 @@
                             <argLine>
                                 -javaagent:${com.browserstack:browserstack-java-sdk:jar}
                             </argLine>
+                            <systemPropertyVariables>
+                                <browserstack.app>./LocalSample.apk</browserstack.app>
+                            </systemPropertyVariables>
                         </configuration>
                     </plugin>
                 </plugins>

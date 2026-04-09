@@ -21,15 +21,15 @@ public class LocalTest extends BrowserStackJUnitTest{
 
   @Test
   void test() throws IOException, InterruptedException {
-    WebElement searchElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement searchElement = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.id("com.example.android.basicnetworking:id/test_action")));
     searchElement.click();
-    WebElement insertTextElement = (WebElement) new WebDriverWait(driver, Duration.ofSeconds(30)).until(
+    WebElement insertTextElement = new WebDriverWait(driver, Duration.ofSeconds(30)).until(
         ExpectedConditions.elementToBeClickable(AppiumBy.className("android.widget.TextView")));
 
     WebElement testElement = null;
+    Thread.sleep(3000);
     List<WebElement> allTextViewElements = driver.findElements(AppiumBy.className("android.widget.TextView"));
-    Thread.sleep(10);
     for(WebElement textElement : allTextViewElements) {
       if(textElement.getText().contains("The active connection is")) {
         testElement = textElement;
@@ -37,8 +37,8 @@ public class LocalTest extends BrowserStackJUnitTest{
     }
 
     if(testElement == null) {
-      File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-      FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir") + "screenshot.png"));
+      byte[] scrBytes = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+      FileUtils.writeByteArrayToFile(new File(System.getProperty("user.dir") + "screenshot.png"), scrBytes);
       System.out.println("Screenshot stored at " + System.getProperty("user.dir") + "screenshot.png");
       throw new Error("Cannot find the needed TextView element from app");
     }
